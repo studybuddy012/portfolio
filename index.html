@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Pratham | Developer Portfolio</title>
+  <title>Pratham Patel | Portfolio</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -15,70 +15,111 @@
       margin:0;
       background:#0b141a;
       color:#e9edef;
+      overflow-x:hidden;
     }
 
-    /* ===== HEADER ===== */
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(20px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @keyframes float{
+      0%{ transform:translateY(0); }
+      50%{ transform:translateY(-6px); }
+      100%{ transform:translateY(0); }
+    }
+
+    /* ===== HERO ===== */
     .hero{
-      padding:50px 20px;
+      padding:80px 20px 60px;
       text-align:center;
       background:linear-gradient(135deg,#111b21,#0b141a);
+      animation:fadeUp 0.8s ease;
     }
 
     .hero h1{
       margin:0;
-      font-size:32px;
+      font-size:36px;
     }
 
     .hero p{
-      margin-top:8px;
+      margin-top:10px;
+      font-size:17px;
       color:#aebac1;
-      font-size:16px;
     }
 
-    /* ===== PROJECTS ===== */
+    /* ===== SECTIONS ===== */
     .container{
       max-width:1100px;
       margin:auto;
-      padding:40px 20px;
+      padding:50px 20px;
     }
 
+    .section{
+      margin-bottom:60px;
+      animation:fadeUp 0.8s ease;
+    }
+
+    .section h2{
+      font-size:26px;
+      margin-bottom:14px;
+    }
+
+    .section p{
+      font-size:16px;
+      color:#cfd4d7;
+      line-height:1.7;
+    }
+
+    /* ===== PROJECT CARDS ===== */
     .projects{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:20px;
+      gap:22px;
+      margin-top:30px;
     }
 
     .card{
       background:#202c33;
-      border-radius:14px;
-      padding:20px;
-      box-shadow:0 8px 20px rgba(0,0,0,0.4);
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
+      border-radius:16px;
+      padding:22px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.45);
+      transition:0.3s;
+      animation:float 4s ease-in-out infinite;
+    }
+
+    .card:hover{
+      transform:translateY(-6px) scale(1.02);
     }
 
     .card h3{
-      margin:0 0 6px 0;
-      font-size:20px;
+      margin-top:0;
+      font-size:21px;
     }
 
     .card p{
-      font-size:14px;
+      font-size:14.5px;
       color:#aebac1;
-      line-height:1.5;
     }
 
     .card button{
       margin-top:14px;
       padding:12px;
+      width:100%;
       border:none;
       border-radius:10px;
       font-size:15px;
       font-weight:600;
-      cursor:pointer;
       background:#00a884;
-      color:#fff;
+      color:white;
+      cursor:pointer;
     }
 
     .card button:hover{
@@ -89,7 +130,7 @@
     .modal{
       position:fixed;
       inset:0;
-      background:rgba(0,0,0,0.7);
+      background:rgba(0,0,0,0.75);
       display:none;
       align-items:center;
       justify-content:center;
@@ -99,11 +140,12 @@
     .modal-box{
       background:#ffffff;
       color:#111;
-      padding:26px;
+      padding:28px;
       width:90%;
       max-width:360px;
-      border-radius:14px;
+      border-radius:16px;
       text-align:center;
+      animation:fadeUp 0.4s ease;
     }
 
     .modal-box h3{
@@ -127,7 +169,7 @@
       border-radius:8px;
       font-size:15px;
       background:#00a884;
-      color:#fff;
+      color:white;
       cursor:pointer;
     }
 
@@ -138,10 +180,17 @@
       display:none;
     }
 
+    /* ===== FOOTER ===== */
+    footer{
+      text-align:center;
+      padding:30px 20px;
+      color:#7c8b93;
+      font-size:14px;
+    }
+
     @media(max-width:480px){
-      .hero h1{
-        font-size:26px;
-      }
+      .hero h1{ font-size:28px; }
+      .section h2{ font-size:22px; }
     }
   </style>
 </head>
@@ -150,40 +199,67 @@
 
 <!-- HERO -->
 <div class="hero">
-  <h1>Pratham Patel</h1>
-  <p>Student Developer • Web • Python • Real-Time Apps</p>
+  <h1>Pratham Patel 👋</h1>
+  <p>Student Developer • Web • Python • Real-Time Applications</p>
+</div>
+
+<!-- ABOUT ME -->
+<div class="container section">
+  <h2>👨‍💻 About Me</h2>
+  <p>
+    Hi, I’m <b>Pratham Patel</b>, a student developer who loves building
+    real-world applications instead of just tutorials.
+    I enjoy working with <b>Python, Web Technologies, and Real-Time systems</b>.
+    My goal is to create useful, practical software that actually solves problems
+    and feels like a real product.
+  </p>
+</div>
+
+<!-- WEBCHAT STORY -->
+<div class="container section">
+  <h2>💬 WebChat App – Why I Built It</h2>
+  <p>
+    The <b>WebChat App</b> was built as a personal project to understand how
+    real-time applications work behind the scenes.
+    It was specially created for <b>private communication</b>, focusing on
+    simplicity, security, and a smooth mobile experience.
+  </p>
+  <p>
+    This project helped me learn <b>Socket.IO, authentication, UI/UX design,
+    mobile responsiveness, and deployment</b>.
+    It’s not just a chat app — it’s a complete, production-style project.
+  </p>
 </div>
 
 <!-- PROJECTS -->
-<div class="container">
+<div class="container section">
   <h2>🚀 Projects</h2>
 
   <div class="projects">
 
-    <!-- WEBCHAT -->
     <div class="card">
-      <h3>WebChat App 🔒</h3>
+      <h3>🔐 WebChat App</h3>
       <p>
-        Real-time chat application built with Flask + Socket.IO.  
-        Includes login system, mobile-friendly UI and message history.
+        A real-time chat application with login system,
+        message history, mobile-friendly UI, and private access.
       </p>
-      <button onclick="openModal()">Open WebChat</button>
+      <button onclick="openModal()">Access WebChat</button>
     </div>
 
-    <!-- OTHER PROJECT -->
     <div class="card">
-      <h3>Jarvis Desktop AI</h3>
+      <h3>🤖 Jarvis Desktop AI</h3>
       <p>
-        Python-based assistant with voice commands, face recognition
-        and automation features.
+        A Python-based desktop assistant with voice commands,
+        automation, and AI-like behavior.
       </p>
       <button disabled>Coming Soon</button>
     </div>
 
     <div class="card">
-      <h3>Person Detector</h3>
+      <h3>🧠 Person Detector</h3>
       <p>
-        Computer vision project using OpenCV to detect humans in real-time.
+        Computer vision project using OpenCV to detect humans
+        in real-time through camera feed.
       </p>
       <button disabled>Coming Soon</button>
     </div>
@@ -191,45 +267,43 @@
   </div>
 </div>
 
-<!-- SECRET CODE MODAL -->
+<!-- SECRET MODAL -->
 <div class="modal" id="modal">
   <div class="modal-box">
-    <h3>🔐 Enter Secret Code</h3>
+    <h3>🔑 Enter Secret Code</h3>
     <input id="code" placeholder="Secret code">
     <button onclick="checkCode()">Access</button>
     <div class="error" id="err">Wrong code ❌</div>
   </div>
 </div>
 
+<footer>
+  © 2026 Pratham Patel • Built with ❤️ and curiosity
+</footer>
+
 <script>
 /* ===== CONFIG ===== */
-const SECRET_CODE = "bubu"; // 🔥 change this
+const SECRET_CODE = "bubu";  // 🔐 change this
 const WEBCHAT_URL = "https://webchat-y4za.onrender.com";
 
 /* ===== MODAL ===== */
 function openModal(){
-  document.getElementById("modal").style.display="flex";
-  document.getElementById("err").style.display="none";
-  document.getElementById("code").value="";
+  modal.style.display="flex";
+  err.style.display="none";
+  code.value="";
 }
 
 function checkCode(){
-  const c = document.getElementById("code").value;
-  if(c === SECRET_CODE){
+  if(code.value === SECRET_CODE){
     window.open(WEBCHAT_URL,"_blank");
-    closeModal();
+    modal.style.display="none";
   }else{
-    document.getElementById("err").style.display="block";
+    err.style.display="block";
   }
 }
 
-function closeModal(){
-  document.getElementById("modal").style.display="none";
-}
-
-/* Close modal on background click */
-document.getElementById("modal").onclick = e=>{
-  if(e.target.id==="modal") closeModal();
+modal.onclick = e=>{
+  if(e.target.id==="modal") modal.style.display="none";
 }
 </script>
 
