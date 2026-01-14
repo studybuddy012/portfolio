@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Pratham | Developer Portfolio</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    *{
+      box-sizing:border-box;
+      font-family:"Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    body{
+      margin:0;
+      background:#0b141a;
+      color:#e9edef;
+    }
+
+    /* ===== HEADER ===== */
+    .hero{
+      padding:50px 20px;
+      text-align:center;
+      background:linear-gradient(135deg,#111b21,#0b141a);
+    }
+
+    .hero h1{
+      margin:0;
+      font-size:32px;
+    }
+
+    .hero p{
+      margin-top:8px;
+      color:#aebac1;
+      font-size:16px;
+    }
+
+    /* ===== PROJECTS ===== */
+    .container{
+      max-width:1100px;
+      margin:auto;
+      padding:40px 20px;
+    }
+
+    .projects{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:20px;
+    }
+
+    .card{
+      background:#202c33;
+      border-radius:14px;
+      padding:20px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.4);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+
+    .card h3{
+      margin:0 0 6px 0;
+      font-size:20px;
+    }
+
+    .card p{
+      font-size:14px;
+      color:#aebac1;
+      line-height:1.5;
+    }
+
+    .card button{
+      margin-top:14px;
+      padding:12px;
+      border:none;
+      border-radius:10px;
+      font-size:15px;
+      font-weight:600;
+      cursor:pointer;
+      background:#00a884;
+      color:#fff;
+    }
+
+    .card button:hover{
+      background:#029e7c;
+    }
+
+    /* ===== MODAL ===== */
+    .modal{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.7);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:999;
+    }
+
+    .modal-box{
+      background:#ffffff;
+      color:#111;
+      padding:26px;
+      width:90%;
+      max-width:360px;
+      border-radius:14px;
+      text-align:center;
+    }
+
+    .modal-box h3{
+      margin-top:0;
+    }
+
+    .modal-box input{
+      width:100%;
+      padding:12px;
+      margin-top:12px;
+      font-size:15px;
+      border-radius:8px;
+      border:1px solid #ccc;
+    }
+
+    .modal-box button{
+      width:100%;
+      margin-top:14px;
+      padding:12px;
+      border:none;
+      border-radius:8px;
+      font-size:15px;
+      background:#00a884;
+      color:#fff;
+      cursor:pointer;
+    }
+
+    .error{
+      color:#c00000;
+      font-size:13px;
+      margin-top:10px;
+      display:none;
+    }
+
+    @media(max-width:480px){
+      .hero h1{
+        font-size:26px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Pratham Patel</h1>
+  <p>Student Developer • Web • Python • Real-Time Apps</p>
+</div>
+
+<!-- PROJECTS -->
+<div class="container">
+  <h2>🚀 Projects</h2>
+
+  <div class="projects">
+
+    <!-- WEBCHAT -->
+    <div class="card">
+      <h3>WebChat App 🔒</h3>
+      <p>
+        Real-time chat application built with Flask + Socket.IO.  
+        Includes login system, mobile-friendly UI and message history.
+      </p>
+      <button onclick="openModal()">Open WebChat</button>
+    </div>
+
+    <!-- OTHER PROJECT -->
+    <div class="card">
+      <h3>Jarvis Desktop AI</h3>
+      <p>
+        Python-based assistant with voice commands, face recognition
+        and automation features.
+      </p>
+      <button disabled>Coming Soon</button>
+    </div>
+
+    <div class="card">
+      <h3>Person Detector</h3>
+      <p>
+        Computer vision project using OpenCV to detect humans in real-time.
+      </p>
+      <button disabled>Coming Soon</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- SECRET CODE MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <h3>🔐 Enter Secret Code</h3>
+    <input id="code" placeholder="Secret code">
+    <button onclick="checkCode()">Access</button>
+    <div class="error" id="err">Wrong code ❌</div>
+  </div>
+</div>
+
+<script>
+/* ===== CONFIG ===== */
+const SECRET_CODE = "bubu"; // 🔥 change this
+const WEBCHAT_URL = "https://webchat-y4za.onrender.com";
+
+/* ===== MODAL ===== */
+function openModal(){
+  document.getElementById("modal").style.display="flex";
+  document.getElementById("err").style.display="none";
+  document.getElementById("code").value="";
+}
+
+function checkCode(){
+  const c = document.getElementById("code").value;
+  if(c === SECRET_CODE){
+    window.open(WEBCHAT_URL,"_blank");
+    closeModal();
+  }else{
+    document.getElementById("err").style.display="block";
+  }
+}
+
+function closeModal(){
+  document.getElementById("modal").style.display="none";
+}
+
+/* Close modal on background click */
+document.getElementById("modal").onclick = e=>{
+  if(e.target.id==="modal") closeModal();
+}
+</script>
+
+</body>
+</html>
